@@ -1,4 +1,4 @@
 package com.empik.interview.exception;
 
-public class GithubServiceUnavailableException extends RuntimeException{
+public class GithubServiceUnavailableException extends RuntimeException {
 }

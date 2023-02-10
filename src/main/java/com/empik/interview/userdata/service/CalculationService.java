@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculationService {
 
+    public static final int DEFAULT_SCALE = 10;
     private final static int constNumberA = 6;
     private final static int constNumberB = 2;
 
@@ -15,8 +16,7 @@ public class CalculationService {
         if (followers == 0) {
             throw new DivideByZeroExceptionException();
         }
-        return BigDecimal.valueOf(constNumberA).divide(
-            BigDecimal.valueOf(followers).multiply(
-                BigDecimal.valueOf(constNumberB).add(BigDecimal.valueOf(publicRepos))), RoundingMode.HALF_UP);
+        BigDecimal sumResult = BigDecimal.valueOf(constNumberB).add(BigDecimal.valueOf(publicRepos));
+        return BigDecimal.valueOf(constNumberA).divide(BigDecimal.valueOf(followers).multiply(sumResult), DEFAULT_SCALE, RoundingMode.HALF_UP);
     }
 }

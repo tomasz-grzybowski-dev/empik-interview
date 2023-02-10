@@ -26,6 +26,7 @@ public class GithubUserDetailsController {
 
     @GetMapping("/users/{login}")
     public UserDetailsDto getUserDetails(@PathVariable String login) {
+        log.debug("Start processing get user details service for login: {}", login);
         return githubUserDetailsService.getUserDetailsFromGithubApi(login);
     }
 
